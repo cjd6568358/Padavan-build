@@ -45,7 +45,7 @@ jobs:
         #wget https://github.com/hanwckf/padavan-toolchain/releases/download/v1.1/mipsel-linux-uclibc.tar.xz
         #tar -xvf mipsel-linux-uclibc.tar.xz -C toolchain-3.4.x
 
-        mkdir -p /opt/images/
+        
     - name: Build Firmware
       env:
         TNAME: NEWIFI3
@@ -107,7 +107,7 @@ jobs:
         #sudo ./build_firmware_bkye $TNAME
 
         sudo ./build_firmware_modify $TNAME
-
+        mkdir -p /opt/images/
         sudo mv -f images/*.trx /opt/images/
     - name : Upload packages
       uses: actions/upload-artifact@master
