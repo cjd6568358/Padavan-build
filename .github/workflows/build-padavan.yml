@@ -96,13 +96,13 @@ jobs:
         #sed -i '/自定义项/d' .config
         #echo "自定义项=y" >> .config
         #########################################################################################
+        mkdir -p /opt/rt-n56u/trunk/images
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME
-        mkdir -p /opt/images/
-        sudo mv -f images/*.trx /opt/images/
+        #sudo mv -f images/*.trx /opt/images/
     - name : Upload packages
       uses: actions/upload-artifact@master
       if: always()
       with:
         name: Padavan-packages
-        path: /opt/images
+        path: /opt/rt-n56u/trunk/images
